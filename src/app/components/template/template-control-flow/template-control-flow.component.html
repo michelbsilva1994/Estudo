@@ -1,0 +1,109 @@
+<!-- <h2>Control Flow</h2>
+<h3>IF, FOR</h3>
+
+ @if( isTrue ){
+  Maior
+}@else{
+  Menor
+}
+
+
+@if(loadingData$ | async; as data){
+  <ul>
+    @for(item of data; track item){
+      <li>{{item}}</li>
+    }
+  </ul>
+}@else{
+  <p>Carregando...</p>
+}
+
+<ul>
+  @for(item of loadingData$ | async; track item){
+    <li>{{item}}</li>
+  }
+</ul>
+
+<h4>For da forma antiga</h4>
+
+
+<ng-container *ngIf="loadingData$ | async as data; else loading">
+  <ul>
+    <ng-container *ngFor="let item of data; trackBy: trackByFn">
+      <li>{{item}}</li>
+    </ng-container>
+  </ul>
+</ng-container>
+<ng-template #loading><p>Carregando...</p></ng-template>
+
+<hr>
+<p>Nova Forma</p>
+@for(
+  item of itens; track item.name;
+  let i = $index;
+  let c = $count;
+  let f = $first;
+  let l = $last;
+  let e = $even;
+  let o = $odd;
+  ) {
+    <p>{{item.name}}</p>
+    <p>index - {{i}}</p>
+    <p>count - {{c}}</p>
+    <p>first - {{f}}</p>
+    <p>last - {{l}}</p>
+    <p>even - {{e}}</p>
+    <p>odd - {{o}}</p>
+}
+
+<input #name type="text">
+<button (click)="addNewName(name.value)">Add Name</button>
+
+<hr><hr><hr><hr>
+<p>Forma Nova</p>
+<ul>
+  @for(item of itens; track item.name){
+    <li>{{item.name}}</li>
+  }@empty{
+    <li>Sem registros</li>
+}
+</ul>
+
+<p>Forma Antiga</p>
+
+<ul>
+  <ng-container *ngIf="itens.length === 0; else itensExist">
+    <li>Sem registros</li>
+  </ng-container>
+  <ng-template #itensExist>
+    <ng-container *ngFor="let item of itens">
+      <li>{{item.name}}</li>
+    </ng-container>
+  </ng-template>
+</ul>
+
+<hr><hr><hr>
+
+<p>Switch</p>
+
+<p>Forma Nova</p>
+
+@switch(switchCondicition){
+  @case('A'){
+    <p>Sua letra é A.</p>
+  }
+  @case('B'){
+    <p>Sua letra é B.</p>
+  }
+  @default{
+    <p>Letra não identificada.</p>
+  }
+}
+
+<p>Forma Antiga</p>
+
+<ng-container [ngSwitch]="switchCondicition">
+  <ng-container *ngSwitchCase="'A'"><p>Sua letra é A.</p></ng-container>
+  <ng-container *ngSwitchCase="'B'"><p>Sua letra é B.</p></ng-container>
+  <ng-container *ngSwitchDefault><p>Letra não identificada.</p></ng-container>
+</ng-container> -->

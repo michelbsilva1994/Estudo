@@ -1,11 +1,10 @@
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { Component, LOCALE_ID, signal } from '@angular/core';
 import { delay, Observable, of } from 'rxjs';
-import { CustomStringPipe } from '../../../pipes/custom-string.pipe';
 
 @Component({
   selector: 'app-angular-pipes',
-  imports: [CommonModule, CustomStringPipe],
+  imports: [CommonModule],
   templateUrl: './angular-pipes.component.html',
   styleUrl: './angular-pipes.component.scss'
 })

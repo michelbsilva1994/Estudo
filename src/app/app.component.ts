@@ -9,6 +9,7 @@ import { PaiOuMaeComponent } from './components/comunicacao-entre-components/pai
 import { AngularPipesComponent } from './components/pipes/angular-pipes/angular-pipes.component';
 import { ReactiveFormsComponent } from './components/forms/reactive-forms/reactive-forms.component';
 import { TemplateDrivenFormsComponent } from './components/forms/template-driven-forms/template-driven-forms.component';
+import { ContentComponent } from './components/content/content.component';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ import { TemplateDrivenFormsComponent } from './components/forms/template-driven
   imports: [RouterOutlet,TemplateBindingComponent, TemplateVariableComponent,
             TemplateControlFlowComponent,TemplateDeferrableViewsComponent,
             SignalsComponent,PaiOuMaeComponent, AngularPipesComponent,
-            ReactiveFormsComponent, TemplateDrivenFormsComponent
+            ReactiveFormsComponent, TemplateDrivenFormsComponent, ContentComponent
           ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

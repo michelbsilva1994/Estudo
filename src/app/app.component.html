@@ -1,5 +1,18 @@
 <h1>Curso de Angular</h1>
 
+@if(boolean){
+  <app-life-cycle [inputMyNumber]="number()">
+    <p #text>Text</p>
+  </app-life-cycle>
+}
+
+<button (click)="boolean = !boolean">Destroy Component</button>
+
+<hr>
+<hr>
+<app-host-elements/>
+<hr>
+<hr>
 <app-template-binding/>
 <app-template-variable/>
 <app-template-control-flow/>

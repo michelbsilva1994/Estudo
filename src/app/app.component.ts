@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnChanges, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TemplateBindingComponent } from './components/template/template-binding/template-binding.component';
 import { TemplateVariableComponent } from './components/template/template-variable/template-variable.component';
@@ -10,6 +10,8 @@ import { AngularPipesComponent } from './components/pipes/angular-pipes/angular-
 import { ReactiveFormsComponent } from './components/forms/reactive-forms/reactive-forms.component';
 import { TemplateDrivenFormsComponent } from './components/forms/template-driven-forms/template-driven-forms.component';
 import { ContentComponent } from './components/content/content.component';
+import { HostElementsComponent } from './components/host-elements/host-elements.component';
+import { LifeCycleComponent } from './components/life-cycle/life-cycle.component';
 
 @Component({
   selector: 'app-root',
@@ -17,11 +19,24 @@ import { ContentComponent } from './components/content/content.component';
   imports: [RouterOutlet,TemplateBindingComponent, TemplateVariableComponent,
             TemplateControlFlowComponent,TemplateDeferrableViewsComponent,
             SignalsComponent,PaiOuMaeComponent, AngularPipesComponent,
-            ReactiveFormsComponent, TemplateDrivenFormsComponent, ContentComponent
+            ReactiveFormsComponent, TemplateDrivenFormsComponent, ContentComponent, HostElementsComponent,
+            LifeCycleComponent
           ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {
+export class AppComponent implements OnChanges{
   title = 'angular-v17';
+
+  public number = signal(1);
+  public boolean = true;
+
+  ngOnChanges(): void {
+    setInterval( () => {
+      this.number.update((oldValue: any) => {
+        return oldValue + 1;
+      })
+    }, 1000)
+  }
 }

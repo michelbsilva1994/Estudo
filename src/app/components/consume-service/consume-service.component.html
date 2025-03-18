@@ -1,0 +1,12 @@
+<h2>Service</h2>
+@if (getListTask(); as data) {
+  <ul>
+    @for (item of data; track item) {
+      <li>{{item.id}} - {{item.title}}</li>
+    }@empty {
+      <li>Sem dados carregados!</li>
+    }
+    </ul>
+}@else {
+  <li>Loading...</li>
+}

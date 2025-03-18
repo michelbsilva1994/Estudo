@@ -12,6 +12,8 @@ import { TemplateDrivenFormsComponent } from './components/forms/template-driven
 import { ContentComponent } from './components/content/content.component';
 import { HostElementsComponent } from './components/host-elements/host-elements.component';
 import { LifeCycleComponent } from './components/life-cycle/life-cycle.component';
+import { ConsumeServiceComponent } from '@components/consume-service/consume-service.component';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +22,7 @@ import { LifeCycleComponent } from './components/life-cycle/life-cycle.component
             TemplateControlFlowComponent,TemplateDeferrableViewsComponent,
             SignalsComponent,PaiOuMaeComponent, AngularPipesComponent,
             ReactiveFormsComponent, TemplateDrivenFormsComponent, ContentComponent, HostElementsComponent,
-            LifeCycleComponent
+            LifeCycleComponent, ConsumeServiceComponent
           ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -28,6 +30,10 @@ import { LifeCycleComponent } from './components/life-cycle/life-cycle.component
 })
 export class AppComponent implements OnChanges{
   title = 'angular-v17';
+
+  constructor(){
+    console.log(environment.env);
+  }
 
   public number = signal(1);
   public boolean = true;

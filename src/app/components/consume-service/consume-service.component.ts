@@ -21,6 +21,7 @@ export class ConsumeServiceComponent implements OnInit{
   #apiService = inject(ApiService);
 
   public getListTask = this.#apiService.getListTask;
+  public getTaskId = this.#apiService.getTaskId;
 
   ngOnInit(): void {
     // this.getTask$.subscribe({
@@ -29,6 +30,7 @@ export class ConsumeServiceComponent implements OnInit{
     //   complete: () => console.log('Complete!')
     // })
     this.#apiService.httpListTask$().subscribe();
+    this.#apiService.httpTaskId$('Ihs5QVIeC1ivCW4gb1Pv').subscribe();
   }
 
 }

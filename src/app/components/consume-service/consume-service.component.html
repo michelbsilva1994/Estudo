@@ -2,7 +2,7 @@
 @if (getListTask(); as data) {
   <ul>
     @for (item of data; track item) {
-      <li>{{item.id}} - {{item.title}}</li>
+      <li>{{item.id}} - {{item.title}} - <button (click)="httpTaskDelete(item.id)">Delete</button></li>
     }@empty {
       <li>Sem dados carregados!</li>
     }
@@ -10,10 +10,34 @@
 }@else {
   <li>Loading...</li>
 }
+@if (getTaskListError()) {
+  <p>{{getTaskListError()}}</p>
+}
+
+@if (getTaskDeleteError()){
+  <p>{{getTaskDeleteError()}}</p>
+}
 
 <h3>Get Item Id</h3>
 @if(getTaskId(); as data){
   <p>{{data.id}} = {{data.title}}</p>
 }@else{
-  <p>Não Encontrado!</p>
+  <p>{{getTaskIdError()}}</p>
+}
+
+<h3>Post Create</h3>
+
+<input type="text" #createTitle placeholder="Add Titile"/>
+<button (click)="httpTaskCreate(createTitle.value)">Create</button>
+@if(getTaskCreateError()){
+  <p>{{getTaskCreateError()}}</p>
+}
+
+<h3>Patch Update</h3>
+
+<input type="text" #updateId placeholder="add ID"/>
+<input type="text" #updateTitle placeholder="add Title"/>
+<button (click)="httpTaskUpdate(updateId.value, updateTitle.value)">Update</button>
+@if(getTaskUpdateError()){
+  <p>{{getTaskUpdateError()}}</p>
 }
